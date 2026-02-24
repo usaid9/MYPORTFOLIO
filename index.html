@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/usaid9.github.io/logo.png" id="favicon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Usaid Ahmad | Web Developer</title>
+  <meta name="description" content="React & Node.js Web Developer Portfolio" />
+  <meta name="keywords" content="React, Web Developer, JavaScript, Portfolio" />
+
+  <script>
+    // Detect and apply dark mode logo
+    function updateFavicon() {
+      const favicon = document.getElementById('favicon');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      
+      if (prefersDark) {
+        favicon.href = '/logodark.png';
+      } else {
+        favicon.href = '/logo.png';
+      }
+    }
+
+    // Update on load
+    updateFavicon();
+
+    // Listen for theme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateFavicon);
+  </script>
+  <script type="module" crossorigin src="/usaid9.github.io/assets/index-Cnoqf77D.js"></script>
+  <link rel="stylesheet" crossorigin href="/usaid9.github.io/assets/index-Cg3tgVN3.css">
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+
+</html>
