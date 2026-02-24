@@ -45,7 +45,7 @@ export default function App() {
         <Hero />
         <Skills />
         <Projects />
-        <Contact dark={dark} />
+        <Contact dark={dark}/>
         <Footer />
         <Mydock />
 
