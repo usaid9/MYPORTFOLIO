@@ -202,4 +202,5 @@ export default function TiltedCard({
       )}
     </figure>
   );
+
 }

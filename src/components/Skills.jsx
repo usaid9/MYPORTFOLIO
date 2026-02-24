@@ -4,6 +4,9 @@ import TiltedCard from "../../components/TiltedCard";
 import { skills } from "../data/skills.js";
 import CurvedLoop from "../../components/CurvedLoop";
 import { useState, useEffect } from "react";
+import creato from "/creato.avif";
+import coding from "/coding.avif";
+import donut from "/donut.avif";
 
 import {
   SiReact,
@@ -63,7 +66,7 @@ export default function Skills() {
 
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 1024); // Use lg breakpoint
+      setIsMobile(window.innerWidth < 1024);
     };
     
     checkMobile();
@@ -74,25 +77,21 @@ export default function Skills() {
 
   const { scrollYProgress } = useScroll();
   
-  // Disable scroll animations on mobile or if reduced motion is preferred
   const disableMotion = isMobile || shouldReduceMotion;
   
-  // Wider scroll range for smoother transitions (less sensitive)
-  const scale = useTransform(scrollYProgress, [0, 0.3], disableMotion ? [1, 1] : [1, 0.9]);  // Subtler scale
+  const scale = useTransform(scrollYProgress, [0, 0.3], disableMotion ? [1, 1] : [1, 0.9]);  
   const scale2 = useTransform(scrollYProgress, [0, 0.3], disableMotion ? [1, 1] : [1, 0.9]);
-  const scale3 = useTransform(scrollYProgress, [0, 0.3], disableMotion ? [1, 1] : [1.2, 1.1]);  // Subtler
-  const y = useTransform(scrollYProgress, [0, 0.3], disableMotion ? [0, 0] : [0, -20]);  // Less movement
+  const scale3 = useTransform(scrollYProgress, [0, 0.3], disableMotion ? [1, 1] : [1.2, 1.1]); 
+  const y = useTransform(scrollYProgress, [0, 0.3], disableMotion ? [0, 0] : [0, -20]);  
   const y2 = useTransform(scrollYProgress, [0, 0.3], disableMotion ? [0, 0] : [0, -50]);
 
-  // Apply spring for smoother interpolation (damping prevents jank)
-  const springConfig = { damping: 25, stiffness: 100 };  // Adjust for feel
+  const springConfig = { damping: 25, stiffness: 100 };
   const springScale = useSpring(scale, springConfig);
   const springScale2 = useSpring(scale2, springConfig);
   const springScale3 = useSpring(scale3, springConfig);
   const springY = useSpring(y, springConfig);
   const springY2 = useSpring(y2, springConfig);
 
-  // Combined transforms with spring and 3D applied at the scroll level for smoothness
   const headingTransform = useTransform([springScale], ([s]) => `scale(${s}) translateZ(0)`);
   const logoTransform = useTransform([springScale2, springY], ([s, transY]) => 
     isMobile 
@@ -106,14 +105,12 @@ export default function Skills() {
       id="skills"
       className="w-full mx-auto px-4 sm:px-6 py-8 sm:py-12 lg:py-2 overflow-x-hidden"
     >
-      {/* Heading */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         style={{ 
           transform: headingTransform, 
           willChange: "transform",
-          pointerEvents: "none"  // Non-interactive, improves perf
         }}
         className="w-full"
       >
@@ -123,7 +120,6 @@ export default function Skills() {
       </motion.div>
 
       <div style={{ position: "relative" }}>
-        {/* Logo Loops with scroll animation */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -131,14 +127,13 @@ export default function Skills() {
             transform: logoTransform, 
             willChange: "transform",
             marginLeft: isMobile ? "0" : undefined,
-            pointerEvents: "none"
           }}
           className="mb-12 sm:mb-16 lg:mb-0"
         >
           <div className="relative w-full lg:-left-10">
             <LogoLoop
-              logos={techLogos.slice(0, isMobile ? 8 : 13)}  // Reduce logos on mobile for perf
-              speed={isMobile ? 40 : 80}  // Slower for smoothness
+              logos={techLogos.slice(0, isMobile ? 8 : 13)} 
+              speed={isMobile ? 40 : 80}
               direction="left"
               logoHeight="clamp(30px, 8vw, 80px)"
               gap="clamp(20px, 5vw, 60px)"
@@ -148,7 +143,6 @@ export default function Skills() {
               fadeOutColor="transparent"
               ariaLabel="Technology partners"
               style={{
-                // Removed 3D transform; now on motion.div for better nesting
                 transformOrigin: "center center",
                 width: isMobile ? "100%" : "150vw",
                 marginLeft: isMobile ? "0" : "-25vw",
@@ -156,8 +150,8 @@ export default function Skills() {
             />
 
             <LogoLoop
-              logos={techLogos.slice(0, isMobile ? 8 : 13)}  // Reduce logos
-              speed={isMobile ? 35 : 60}  // Slower
+              logos={techLogos.slice(0, isMobile ? 8 : 13)}
+              speed={isMobile ? 35 : 60} 
               direction="right"
               logoHeight="clamp(50px, 10vw, 90px)"
               gap="clamp(20px, 5vw, 80px)"
@@ -168,7 +162,6 @@ export default function Skills() {
               useCustomRender={false}
               className="mt-4 sm:mt-5"
               style={{
-                // Removed 3D transform; now on motion.div
                 transformOrigin: "center center",
                 width: isMobile ? "100%" : "150vw",
                 marginLeft: isMobile ? "0" : "-25vw",
@@ -176,20 +169,17 @@ export default function Skills() {
             />
           </div>
         </motion.div>
-
-        {/* Cards with scroll animation */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           style={{ 
             transform: cardTransform, 
             willChange: "transform",
-            pointerEvents: "none"
           }}
         >
           <div className="px-2 sm:px-4 lg:px-8 py-6 sm:py-8 lg:mt-20 lg:p-4 sm:lg:p-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 place-items-center">
             <TiltedCard
-              imageSrc="/creato.avif"
+              imageSrc={creato}
               altText="Donut"
               captionText="Donut in 3d"
               containerHeight={isMobile ? "250px" : "300px"}
@@ -210,7 +200,7 @@ export default function Skills() {
               }
             />
             <TiltedCard
-              imageSrc="/coding.avif"
+              imageSrc={coding}
               altText="coding"
               captionText="clean code"
               containerHeight={isMobile ? "250px" : "300px"}
@@ -231,7 +221,7 @@ export default function Skills() {
               }
             />
             <TiltedCard
-              imageSrc="/donut.avif"
+              imageSrc={donut}
               altText="Donut"
               captionText="Donut in Blender"
               containerHeight={isMobile ? "250px" : "300px"}
@@ -254,8 +244,6 @@ export default function Skills() {
           </div>
         </motion.div>
       </div>
-
-      {/* Curved Loop */}
       <div
         className="mt-10 sm:mt-12 lg:mt-0"
         style={{
