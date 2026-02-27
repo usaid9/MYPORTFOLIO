@@ -11,6 +11,7 @@ export default function ScrollProgress() {
       setWidth(scrolled * 100);
     };
     window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (

@@ -4,10 +4,6 @@ import BlurText from "../../components/BlurText";
 import GlareHover from "../../components/GlareHover";
 import { useState, useEffect } from "react";
 
-const handleAnimationComplete = () => {
-  console.log("Animation completed!");
-};
-
 export default function Hero() {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -63,7 +59,6 @@ export default function Hero() {
               delay={100}
               animateBy="words"
               direction="top"
-              onAnimationComplete={handleAnimationComplete}
               className="text-base sm:text-lg md:text-xl lg:text-2xl whitespace-nowrap m-0"
             />
           </a>
