@@ -180,8 +180,8 @@ export default function Skills() {
           <div className="px-2 sm:px-4 lg:px-8 py-6 sm:py-8 lg:mt-20 lg:p-4 sm:lg:p-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 place-items-center">
             <TiltedCard
               imageSrc={creato}
-              altText="Donut"
-              captionText="Donut in 3d"
+              altText="my website"
+              captionText="Smooth websites"
               containerHeight={isMobile ? "250px" : "300px"}
               containerWidth={isMobile ? "250px" : "300px"}
               imageHeight={isMobile ? "250px" : "300px"}
