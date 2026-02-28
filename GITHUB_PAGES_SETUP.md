@@ -59,7 +59,7 @@ npm run deploy
 
 ### 4. Verify Deployment
 
-After deployment and DNS propagation (can take up to 24-48 hours), your site should be accessible at:
+After deployment and DNS propagation (typically within a few hours, though it may take up to 24-48 hours in rare cases), your site should be accessible at:
 - https://usaidahmad.me
 - https://usaid9.github.io/MYPORTFOLIO (fallback URL)
 
@@ -67,7 +67,7 @@ After deployment and DNS propagation (can take up to 24-48 hours), your site sho
 
 ### DNS Not Propagating
 - Use [dnschecker.org](https://dnschecker.org) to check DNS propagation globally
-- DNS changes can take 24-48 hours to fully propagate
+- DNS changes typically propagate within minutes to a few hours, though it may take up to 24-48 hours in rare cases
 
 ### 404 Error
 - Ensure GitHub Pages is set to use `gh-pages` branch
